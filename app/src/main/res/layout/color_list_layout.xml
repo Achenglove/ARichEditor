@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center|right">
+
+    <LinearLayout
+        android:id="@+id/ll_font_option_color"
+        android:layout_width="wrap_content"
+        android:minHeight="45dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/shape_fontoption_border"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="5.0dip"
+        android:visibility="visible">
+
+        <RadioGroup
+            android:id="@+id/RadioGroup_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.ccr.aricheditor.view.ColorRadioButton
+                android:id="@+id/mrb_font_option_black"
+                style="@style/fontcolor"
+                app:checkedResId="@mipmap/font_color_black_selected"
+                app:unCheckedResId="@mipmap/font_color_black" />
+
+            <com.ccr.aricheditor.view.ColorRadioButton
+                android:id="@+id/mrb_font_option_gray"
+                style="@style/fontcolor"
+                app:checkedResId="@mipmap/font_color_gray_selected"
+                app:unCheckedResId="@mipmap/font_color_gray" />
+
+            <com.ccr.aricheditor.view.ColorRadioButton
+                android:id="@+id/mrb_font_option_white"
+                style="@style/fontcolor"
+                app:checkedResId="@mipmap/font_color_whete_selected"
+                app:unCheckedResId="@mipmap/font_color_whete" />
+
+            <com.ccr.aricheditor.view.ColorRadioButton
+                android:id="@+id/mrb_font_option_blackgray"
+                style="@style/fontcolor"
+                app:checkedResId="@mipmap/font_color_blackgray_selected"
+                app:unCheckedResId="@mipmap/font_color_blackgray" />
+
+            <com.ccr.aricheditor.view.ColorRadioButton
+                android:id="@+id/mrb_font_option_blue"
+                style="@style/fontcolor"
+                app:checkedResId="@mipmap/font_color_blue_selected"
+                app:unCheckedResId="@mipmap/font_color_blue" />
+
+            <com.ccr.aricheditor.view.ColorRadioButton
+                android:id="@+id/mrb_font_option_green"
+                style="@style/fontcolor"
+                app:checkedResId="@mipmap/font_color_green_selected"
+                app:unCheckedResId="@mipmap/font_color_green" />
+
+            <com.ccr.aricheditor.view.ColorRadioButton
+                android:id="@+id/mrb_font_option_red"
+                style="@style/fontcolor"
+                app:checkedResId="@mipmap/font_color_red_selected"
+                app:unCheckedResId="@mipmap/font_color_red" />
+
+            <com.ccr.aricheditor.view.ColorRadioButton
+                android:id="@+id/mrb_font_option_violet"
+                style="@style/fontcolor"
+                app:checkedResId="@mipmap/font_color_violet_selected"
+                app:unCheckedResId="@mipmap/font_color_violet" />
+
+            <com.ccr.aricheditor.view.ColorRadioButton
+                android:id="@+id/mrb_font_option_yellow"
+                style="@style/fontcolor"
+                app:checkedResId="@mipmap/font_color_yellow_selected"
+                app:unCheckedResId="@mipmap/font_color_yellow" />
+        </RadioGroup>
+    </LinearLayout>
+
+
+</LinearLayout>

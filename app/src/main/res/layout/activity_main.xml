@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <com.ccr.library.view.ARichEditor
+                android:id="@+id/editor"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_300dip"
+                android:layout_marginLeft="@dimen/dimen_5dip"
+                android:layout_marginRight="@dimen/dimen_5dip"
+                android:gravity="top|left"
+                android:paddingTop="@dimen/dimen_10dip" />
+
+        </LinearLayout>
+
+       <!--<com.ccr.anny.view.CustomSeekbar-->
+           <!--android:id="@+id/mCustomSeekbar"-->
+           <!--android:layout_width="match_parent"-->
+           <!--android:layout_height="wrap_content" />-->
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_layout_editor"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_height="wrap_content"
+        android:visibility="visible">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_1dip"
+            android:layout_above="@+id/editorLayout"
+            android:background="@color/split_line_color" />
+
+        <LinearLayout
+            android:id="@+id/editorLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical">
+
+            <include layout="@layout/editor_layout" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_layout_color"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/editorLayout"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <include layout="@layout/color_list_layout" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_layout_font"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/editorLayout"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <include layout="@layout/font_layout" />
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

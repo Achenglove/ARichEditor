@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <RadioGroup
+        android:background="#E5E3E3"
+        android:id="@+id/rg_group"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        <RadioButton
+            android:id="@+id/action_undo"
+            style="@style/ButtomTabstyle"
+            android:drawableTop="@drawable/rich_select_undo" />
+        <RadioButton
+            android:id="@+id/action_redo"
+            style="@style/ButtomTabstyle"
+            android:drawableTop="@drawable/rich_select_redo" />
+        <RadioButton
+            android:id="@+id/action_bold"
+            style="@style/ButtomTabstyle"
+            android:drawableTop="@drawable/rich_select_blod" />
+        <RadioButton
+            android:id="@+id/action_italic"
+            style="@style/ButtomTabstyle"
+            android:drawableTop="@drawable/rich_select_italic" />
+
+        <RadioButton
+            android:id="@+id/action_under"
+            style="@style/ButtomTabstyle"
+            android:drawableTop="@drawable/rich_select_underline" />
+        <RadioButton
+            android:id="@+id/action_font"
+            style="@style/ButtomTabstyle"
+            android:drawableTop="@drawable/rich_select_fontsize" />
+        <RadioButton
+            android:id="@+id/action_color"
+            style="@style/ButtomTabstyle"
+            android:drawableTop="@drawable/rich_select_color" />
+
+        <RadioButton
+            android:id="@+id/action_image"
+            style="@style/ButtomTabstyle"
+            android:drawableTop="@drawable/rich_select_image" />
+    </RadioGroup>
+</LinearLayout>

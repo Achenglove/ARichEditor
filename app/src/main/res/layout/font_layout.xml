@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:gravity="center|right"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_marginRight="5dp"
+        android:id="@+id/ll_font_option_color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="45dp"
+        android:background="@drawable/shape_fontoption_border"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="5.0dip"
+        android:visibility="visible">
+
+
+        <RadioGroup
+            android:id="@+id/RadioGroup_font"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/oversize_size"
+                style="@style/fontstyle"
+                android:text="超大号" />
+
+            <RadioButton
+                android:id="@+id/large_size"
+                style="@style/fontstyle"
+                android:text="大号" />
+
+            <RadioButton
+                android:id="@+id/default_size"
+                style="@style/fontstyle"
+                android:text="默认" />
+
+            <RadioButton
+                android:id="@+id/small_size"
+                style="@style/fontstyle"
+                android:text="小号" />
+
+        </RadioGroup>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/dimen_15dip"
+    android:paddingLeft="@dimen/dimen_50dip"
+    android:paddingRight="@dimen/dimen_50dip"
+    android:paddingTop="@dimen/dimen_10dip">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:text="插入超链接"
+        android:textColor="@color/font_color"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/et_link_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="超链接地址"
+        android:text="http://"
+        android:textColor="@color/font_color"
+        android:textSize="@dimen/dimen_14sp" />
+
+    <EditText
+        android:id="@+id/et_link_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="超链接标题"
+        android:textColor="@color/font_color"
+        android:textSize="@dimen/dimen_14sp" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_32dip"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/dimen_6dip">
+
+        <TextView
+            android:id="@+id/btn_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dimen_30dip"
+            android:layout_toLeftOf="@+id/btn_ok"
+            android:gravity="center"
+            android:text="取消"
+            android:textSize="@dimen/my_font_size" />
+
+
+        <TextView
+            android:id="@+id/btn_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/view"
+            android:gravity="center"
+            android:text="确定"
+            android:textColor="@color/mirco_space2"
+            android:textSize="@dimen/my_font_size" />
+    </RelativeLayout>
+
+</LinearLayout>

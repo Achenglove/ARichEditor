@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="white">#ffffff</color>
+    <color name="split_line_color">#f2f2f2</color>
+    <color name="font_color">#181818</color>
+    <color name="mirco_space2">#06c1ae</color>
+    <color name="picker_common_primary">#f3f3f3</color>
+    <color name="picker_pager_bg">#CA000000</color>
+
+    <color name="picker_text_40">#282828</color>
+    <color name="picker_text_80">#505050</color>
+    <color name="picker_text_120">#787878</color>
+
+</resources>
