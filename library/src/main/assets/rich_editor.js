@@ -202,7 +202,8 @@ RE.setBlockquote = function(b) {
 
 //插入图片
 RE.insertImage = function(url, alt) {
-    var html = '<img  src="' + url + '" alt="' + alt + '" /><p align=center style="color:#aaaaaa">来自创骐云课堂App的图片</p><hr align=center width=200 color=#aaaaaa size=1 /><br/><br/>';
+//    var html = '<img  src="' + url + '" alt="' + alt + '" /><p align=center style="color:#aaaaaa">来自创骐云课堂App的图片</p><hr align=center width=200 color=#aaaaaa size=1 /><br/><br/>';
+    var html = '<img  src="' + url + '" /><br/><br/>';
     RE.insertHTML(html);
 }
 

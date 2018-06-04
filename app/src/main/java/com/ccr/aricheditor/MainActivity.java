@@ -22,6 +22,7 @@ import android.view.animation.AnimationSet;
 import android.view.animation.ScaleAnimation;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -44,7 +45,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private RadioGroup colorRadioGroup, fontRadioGroup;
 //    private CustomSeekbar mCustomSeekbar;
 
+    String string="<img src=\"/storage/emulated/0/Tencent/QQfile_recv/u=276711516,3135253545&amp;fm=173&amp;s=7E08762B6661710D.JPEG\"><br><br>";
 
+    ImageView mimageView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,10 +61,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void initViews() {
 //        mCustomSeekbar=(CustomSeekbar) findViewById(R.id.mCustomSeekbar);
+        mimageView=(ImageView) findViewById(R.id.imageView);
+        mimageView.setImageURI(Uri.parse("/storage/emulated/0/Tencent/QQfile_recv/u=276711516,3135253545&amp;fm=173&amp;s=7E08762B6661710D.JPEG"));
         //富文本编辑初始化
         mEditor = (ARichEditor) findViewById(R.id.editor);
         mEditor.setEditorFontSize(15);
-        mEditor.setPadding(10, 10, 10, 50);
+        mEditor.setPadding(10, 10, 10, 100);
         mEditor.setPlaceholder("*项目详情：不得少于100字，说明项目的情况\\n如：项目介绍，筹款如何使用，自我介绍等");
 
         rl_layout_editor = (RelativeLayout) findViewById(R.id.rl_layout_editor);
@@ -135,6 +140,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //                Log.d("Acheng",position+"");
 //            }
 //        });
+        findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                String s= String.format("<img src=\"%s\" />", TextUtils.isEmpty(span.getUrl()) ?
+//                        span.getFilePath() : span.getUrl());
+                Log.d("Acheng",mEditor.getHtml());
+            }
+        });
     }
 
     private void initEvents() {
