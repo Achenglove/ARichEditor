@@ -34,6 +34,7 @@ import com.ccr.aricheditor.view.ColorData;
 import com.ccr.library.view.ARichEditor;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -45,9 +46,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private RadioGroup colorRadioGroup, fontRadioGroup;
 //    private CustomSeekbar mCustomSeekbar;
 
-    String string="<img src=\"/storage/emulated/0/Tencent/QQfile_recv/u=276711516,3135253545&amp;fm=173&amp;s=7E08762B6661710D.JPEG\"><br><br>";
+    String string = "<img src=\"/storage/emulated/0/Tencent/QQfile_recv/u=276711516,3135253545&amp;fm=173&amp;s=7E08762B6661710D.JPEG\"><br><br>";
 
     ImageView mimageView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void initViews() {
 //        mCustomSeekbar=(CustomSeekbar) findViewById(R.id.mCustomSeekbar);
-        mimageView=(ImageView) findViewById(R.id.imageView);
+        mimageView = (ImageView) findViewById(R.id.imageView);
         mimageView.setImageURI(Uri.parse("/storage/emulated/0/Tencent/QQfile_recv/u=276711516,3135253545&amp;fm=173&amp;s=7E08762B6661710D.JPEG"));
         //富文本编辑初始化
         mEditor = (ARichEditor) findViewById(R.id.editor);
@@ -120,36 +122,66 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
             }
         });
+        mEditor.setOnTextChangeListener(new ARichEditor.OnTextChangeListener() {
+            @Override
+            public void onTextChange(String text) {
 
+            }
+        });
         //布局全局改变监听
         rl_layout_editor.getViewTreeObserver().addOnGlobalLayoutListener(onGroupCollapseListener);
+        mEditor.setOnDecorationChangeListener(new ARichEditor.OnDecorationStateListener() {
+            @Override
+            public void onStateChangeListener(String text, List<ARichEditor.Type> types) {
 
+            }
+        });
+        mEditor.setOnInitialLoadListener(new ARichEditor.AfterInitialLoadListener() {
+            @Override
+            public void onAfterInitialLoad(boolean isReady) {
 
+            }
+        });
+        mEditor.setOnScrollChangedCallback(new ARichEditor.OnScrollChangedCallback() {
+            @Override
+            public void onScroll(int dx, int dy) {
 
+            }
+        });
 
-//        ArrayList<String> volume_sections=new ArrayList<>();
-//        volume_sections.add("小号");
-//        volume_sections.add("正常");
-//        volume_sections.add("大号");
-//        volume_sections.add("超大号");
-//        mCustomSeekbar.initData(volume_sections);
-//        mCustomSeekbar.setProgress(volume_sections.size());
-//        mCustomSeekbar.setResponseOnTouch(new ResponseOnTouch() {
-//            @Override
-//            public void onTouchResponse(int position) {
-//                Log.d("Acheng",position+"");
-//            }
-//        });
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                String s= String.format("<img src=\"%s\" />", TextUtils.isEmpty(span.getUrl()) ?
-//                        span.getFilePath() : span.getUrl());
-                Log.d("Acheng",mEditor.getHtml());
+//                ArrayList<String> stringList=new ArrayList<>();
+//                stringList.add(getInsideString(mEditor.getHtml(),"<img src=\"",".JPEG\">"));
+//                Log.d("Acheng", "大小:"+stringList.size());
+//                Log.d("Acheng", stringList.toString());
+                ArrayList<String> finalImgList=new ArrayList<>();
+                String[] strarray=mEditor.getHtml().split("<img src=\"");
+                for (int i=0;i<strarray.length;i++){
+                    Log.d("Acheng", strarray[i]);
+                    int idx = strarray[i].indexOf("\">");
+                    Log.d("Acheng", "位置:"+idx+"");
+                    if(idx>0) {
+                        String str = strarray[i].substring(0, idx);
+                        finalImgList.add(str);
+                    }
+                }
+                Log.d("Acheng", "数组:"+finalImgList.toString());
+
             }
         });
-    }
 
+    }
+    public  String  getInsideString(String  str, String strStart, String strEnd ) {
+        if ( str.indexOf(strStart) < 0 ){
+            return "";
+        }
+        if ( str.indexOf(strEnd) < 0 ){
+            return "";
+        }
+        return str.substring(str.indexOf(strStart) + strStart.length(), str.indexOf(strEnd));
+    }
     private void initEvents() {
 
 
@@ -341,6 +373,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      * 颜色区域
      */
     int colorInt;
+
     private void setColor(int checkedIdColor) {
         if (checkedIdColor == R.id.mrb_font_option_black) {
             colorInt = ColorData.BLACK;
@@ -371,6 +404,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      * 字体区域
      */
     int fontSize;
+
     private void setFontSize(int checkedIdColor) {
         if (checkedIdColor == R.id.oversize_size) {
             fontSize = ColorData.OVERSIZE;

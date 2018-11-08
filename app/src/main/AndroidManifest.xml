@@ -24,8 +24,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".selectphoto.PhotoPagerActivity" />
-        <activity android:name=".selectphoto.PhotoPickerActivity" />
+        <!--<activity android:name=".selectphoto.PhotoPagerActivity" />-->
+        <!--<activity android:name=".selectphoto.PhotoPickerActivity" />-->
     </application>
 
 </manifest>
