@@ -1,4 +1,4 @@
-package com.ccr.library.view;
+package com.ccr.library.util;
 
 import android.content.Context;
 import android.graphics.Bitmap;

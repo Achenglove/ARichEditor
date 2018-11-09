@@ -24,13 +24,22 @@ import java.util.List;
 import java.util.Locale;
 
 /**
- * @Created on 2018/5/28.
- * @autthor Acheng
- * @Email 345887272@qq.com
- * @Description
+ * Copyright (C) 2015 Wasabeef
+ * <p/>
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * <p/>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p/>
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
-public class ARichEditor extends WebView {
+public class RichEditor extends WebView {
 
     public enum Type {
         BOLD,
@@ -73,16 +82,16 @@ public class ARichEditor extends WebView {
     private AfterInitialLoadListener mLoadListener;
     private OnScrollChangedCallback mOnScrollChangedCallback;
 
-    public ARichEditor(Context context) {
+    public RichEditor(Context context) {
         this(context, null);
     }
 
-    public ARichEditor(Context context, AttributeSet attrs) {
+    public RichEditor(Context context, AttributeSet attrs) {
         this(context, attrs, android.R.attr.webViewStyle);
     }
 
     @SuppressLint("SetJavaScriptEnabled")
-    public ARichEditor(Context context, AttributeSet attrs, int defStyleAttr) {
+    public RichEditor(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
         setVerticalScrollBarEnabled(false);
@@ -319,7 +328,6 @@ public class ARichEditor extends WebView {
         exec("javascript:RE.setPlaceholder('" + placeholder + "');");
     }
 
-    //加载css
     public void loadCSS(String cssFile) {
         String jsCSSImport = "(function() {" +
                 "    var head  = document.getElementsByTagName(\"head\")[0];" +
@@ -333,49 +341,40 @@ public class ARichEditor extends WebView {
         exec("javascript:" + jsCSSImport + "");
     }
 
-    //撤销
     public void undo() {
         exec("javascript:RE.undo();");
     }
 
-    //反撤销
     public void redo() {
         exec("javascript:RE.redo();");
     }
 
-    //字体加粗
     public void setBold() {
         exec("javascript:RE.prepareInsert();");
         exec("javascript:RE.setBold();");
     }
 
-    //字体斜体
     public void setItalic() {
         exec("javascript:RE.prepareInsert();");
         exec("javascript:RE.setItalic();");
     }
 
-    //字体下标
     public void setSubscript() {
         exec("javascript:RE.setSubscript();");
     }
 
-    //字体上标
     public void setSuperscript() {
         exec("javascript:RE.setSuperscript();");
     }
 
-    //字体删除线
     public void setStrikeThrough() {
         exec("javascript:RE.setStrikeThrough();");
     }
 
-    //下划线
     public void setUnderline() {
         exec("javascript:RE.setUnderline();");
     }
 
-    //字体颜色
     public void setTextColor(int color) {
         exec("javascript:RE.prepareInsert();");
 
@@ -383,7 +382,6 @@ public class ARichEditor extends WebView {
         exec("javascript:RE.setTextColor('" + hex + "');");
     }
 
-    //字体背景颜色
     public void setTextBackgroundColor(int color) {
         exec("javascript:RE.prepareInsert();");
 
@@ -391,7 +389,6 @@ public class ARichEditor extends WebView {
         exec("javascript:RE.setTextBackgroundColor('" + hex + "');");
     }
 
-    //设置字体大小
     public void setFontSize(int fontSize) {
         if (fontSize > 7 || fontSize < 1) {
             Log.e("RichEditor", "Font size should have a value between 1-7");
@@ -399,14 +396,8 @@ public class ARichEditor extends WebView {
         exec("javascript:RE.setFontSize('" + fontSize + "');");
     }
 
-    //移除格式
     public void removeFormat() {
         exec("javascript:RE.removeFormat();");
-    }
-
-    //设置字号大小
-    public void setHeading(int heading) {
-        exec("javascript:RE.setHeading('" + heading + "');");
     }
 
     public void setHeading(int heading, boolean b, boolean isItalic, boolean isBold, boolean isStrikeThrough) {
@@ -422,34 +413,24 @@ public class ARichEditor extends WebView {
         exec("javascript:RE.setHeading('" + heading + "'," + b + ");");
     }
 
-    //字体缩进
     public void setIndent() {
         exec("javascript:RE.setIndent();");
     }
 
-    //字体缩进还原
     public void setOutdent() {
         exec("javascript:RE.setOutdent();");
     }
 
-    //左对齐
     public void setAlignLeft() {
         exec("javascript:RE.setJustifyLeft();");
     }
 
-    //居中
     public void setAlignCenter() {
         exec("javascript:RE.setJustifyCenter();");
     }
 
-    //右对齐
     public void setAlignRight() {
         exec("javascript:RE.setJustifyRight();");
-    }
-
-    //块引用
-    public void setBlockquote() {
-        exec("javascript:RE.setBlockquote();");
     }
 
     public void setBlockquote(boolean b, boolean isItalic, boolean isBold, boolean isStrikeThrough) {
@@ -465,30 +446,27 @@ public class ARichEditor extends WebView {
         exec("javascript:RE.setBlockquote(" + b + ");");
     }
 
-    //设置点点
     public void setBullets() {
+        exec("javascript:RE.prepareInsert();");
         exec("javascript:RE.setBullets();");
     }
 
-    //设置数字
     public void setNumbers() {
+        exec("javascript:RE.prepareInsert();");
         exec("javascript:RE.setNumbers();");
     }
 
-    //添加图片图片
     public void insertImage(String url, String alt) {
-        //exec("javascript:RE.prepareInsert();");
+        exec("javascript:RE.prepareInsert();");
         exec("javascript:RE.insertImage('" + url + "', '" + alt + "');");
     }
 
-    // 插入分割线
     public void insertHr() {
         exec("javascript:RE.prepareInsert();");
         exec("javascript:RE.insertHr();");
     }
 
 
-    //添加链接
     public void insertLink(String href, String title) {
         exec("javascript:RE.prepareInsert();");
         exec("javascript:RE.insertLink('" + href + "', '" + title + "');");
@@ -499,17 +477,14 @@ public class ARichEditor extends WebView {
         exec("javascript:RE.setTodo('" + Utils.getCurrentTime() + "');");
     }
 
-    //获取焦点
     public void focusEditor() {
         requestFocus();
         exec("javascript:RE.focus();");
     }
 
-    //清除焦点
     public void clearFocusEditor() {
         exec("javascript:RE.blurFocus();");
     }
-
 
     private String convertHexColorString(int color) {
         return String.format("#%06X", (0xFFFFFF & color));
