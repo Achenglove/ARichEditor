@@ -316,6 +316,7 @@ public class ARichEditor extends WebView {
     public void setPlaceholder(String placeholder) {
         exec("javascript:RE.setPlaceholder('" + placeholder + "');");
     }
+
     //加载css
     public void loadCSS(String cssFile) {
         String jsCSSImport = "(function() {" +
@@ -329,32 +330,39 @@ public class ARichEditor extends WebView {
                 "}) ();";
         exec("javascript:" + jsCSSImport + "");
     }
+
     //撤销
     public void undo() {
         exec("javascript:RE.undo();");
     }
+
     //反撤销
     public void redo() {
         exec("javascript:RE.redo();");
     }
+
     //字体加粗
     public void setBold() {
         exec("javascript:RE.prepareInsert();");
         exec("javascript:RE.setBold();");
     }
+
     //字体斜体
     public void setItalic() {
         exec("javascript:RE.prepareInsert();");
         exec("javascript:RE.setItalic();");
     }
+
     //字体下标
     public void setSubscript() {
         exec("javascript:RE.setSubscript();");
     }
+
     //字体上标
     public void setSuperscript() {
         exec("javascript:RE.setSuperscript();");
     }
+
     //字体删除线
     public void setStrikeThrough() {
         exec("javascript:RE.setStrikeThrough();");
@@ -364,6 +372,7 @@ public class ARichEditor extends WebView {
     public void setUnderline() {
         exec("javascript:RE.setUnderline();");
     }
+
     //字体颜色
     public void setTextColor(int color) {
         exec("javascript:RE.prepareInsert();");
@@ -470,6 +479,7 @@ public class ARichEditor extends WebView {
         exec("javascript:RE.insertImage('" + url + "', '" + alt + "');");
     }
 
+    // 插入分割线
     public void insertHr() {
         exec("javascript:RE.prepareInsert();");
         exec("javascript:RE.insertHr();");
