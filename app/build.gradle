@@ -28,4 +28,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:26.1.0'
     compile 'com.android.support:design:26.1.0'
     compile 'com.nineoldandroids:library:2.4.0'
+    //图片/视频选择
+    compile 'pub.devrel:easypermissions:1.0.0'
 }
