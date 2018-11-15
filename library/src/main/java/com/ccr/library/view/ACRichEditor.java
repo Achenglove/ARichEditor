@@ -39,7 +39,7 @@ import java.util.Locale;
  * limitations under the License.
  */
 
-public class RichEditor extends WebView {
+public class ACRichEditor extends WebView {
 
     public enum Type {
         BOLD,
@@ -49,6 +49,8 @@ public class RichEditor extends WebView {
         STRIKETHROUGH,
         UNDERLINE,
         BLOCKQUOTE,
+        NUMBER,
+        SPOT,
         H1,
         H2,
         H3,
@@ -82,16 +84,16 @@ public class RichEditor extends WebView {
     private AfterInitialLoadListener mLoadListener;
     private OnScrollChangedCallback mOnScrollChangedCallback;
 
-    public RichEditor(Context context) {
+    public ACRichEditor(Context context) {
         this(context, null);
     }
 
-    public RichEditor(Context context, AttributeSet attrs) {
+    public ACRichEditor(Context context, AttributeSet attrs) {
         this(context, attrs, android.R.attr.webViewStyle);
     }
 
     @SuppressLint("SetJavaScriptEnabled")
-    public RichEditor(Context context, AttributeSet attrs, int defStyleAttr) {
+    public ACRichEditor(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
         setVerticalScrollBarEnabled(false);

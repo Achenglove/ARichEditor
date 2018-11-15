@@ -15,7 +15,7 @@
             android:background="@color/white"
             android:orientation="vertical">
 
-            <com.ccr.library.view.RichEditor
+            <com.ccr.library.view.ACRichEditor
                 android:id="@+id/editor"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
