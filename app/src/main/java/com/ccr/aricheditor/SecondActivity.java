@@ -26,7 +26,9 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
-import com.ccr.library.view.ACRichEditor;
+import com.ccr.library.view.ARichEditor;
+import com.ccr.library.view.ARichEditor;
+
 import java.util.List;
 import pub.devrel.easypermissions.EasyPermissions;
 
@@ -36,7 +38,7 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
     private ImageButton action_undo, action_redo, action_list, action_image, action_add, action_setting;
     private ImageButton action_num, action_spot, action_bold, action_italic, action_strikethrough, action_blockquote, action_heading1, action_heading2, action_heading3, action_heading4;
     private ImageButton action_line, action_link;
-    private ACRichEditor mEditor;
+    private ARichEditor mEditor;
     private LinearLayout ll_layout_editor, ll_layout_font, ll_layout_add;//添加布局，字体布局
 
     private boolean flag1, flag2, flag3, flag4, flag5, flag6, flag7, flag8,flag9,flag10;
@@ -363,26 +365,30 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
                     action_num.setImageResource(R.mipmap.photpartyedit_num_list);
                     flag9 = false;
                     isBold = false;
+                    isclick=false;
                 }else{
                     action_num.setImageResource(R.mipmap.photpartyedit_num_list2);
                     action_spot.setImageResource(R.mipmap.photpartyedit_spot_list);
                     flag9 = true;
                     flag10=false;
+                    isclick=true;
                 }
-                mEditor.setNumbers();
+                mEditor.setNumbers(isclick);
                 break;
             case R.id.action_spot://点
                 if(flag10){
                     action_spot.setImageResource(R.mipmap.photpartyedit_spot_list);
                     flag10 = false;
                     isBold = false;
+                    isclick=false;
                 }else{
                     action_spot.setImageResource(R.mipmap.photpartyedit_spot_list2);
                     action_num.setImageResource(R.mipmap.photpartyedit_num_list);
                     flag10 = true;
                     flag9=false;
+                    isclick=true;
                 }
-                mEditor.setBullets();
+                mEditor.setBullets(isclick);
                 break;
             case R.id.action_line:
                 mEditor.insertHr();
@@ -508,11 +514,11 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
         /**
          *获取点击出文本的标签类型
          */
-        mEditor.setOnDecorationChangeListener(new ACRichEditor.OnDecorationStateListener() {
+        mEditor.setOnDecorationChangeListener(new ARichEditor.OnDecorationStateListener() {
             @Override
-            public void onStateChangeListener(String text, List<ACRichEditor.Type> types) {
+            public void onStateChangeListener(String text, List<ARichEditor.Type> types) {
 
-                if (types.contains(ACRichEditor.Type.BOLD)) {
+                if (types.contains(ARichEditor.Type.BOLD)) {
                     action_bold.setImageResource(R.mipmap.photpartyedit_b2);
                     flag1 = true;
                     isBold = true;
@@ -522,7 +528,7 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
                     isBold = false;
                 }
 
-                if (types.contains(ACRichEditor.Type.ITALIC)) {
+                if (types.contains(ARichEditor.Type.ITALIC)) {
                     action_italic.setImageResource(R.mipmap.photpartyedit_i2);
                     flag2 = true;
                     isItalic = true;
@@ -532,7 +538,7 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
                     isItalic = false;
                 }
 
-                if (types.contains(ACRichEditor.Type.STRIKETHROUGH)) {
+                if (types.contains(ARichEditor.Type.STRIKETHROUGH)) {
                     action_strikethrough.setImageResource(R.mipmap.strikethrough_l);
                     flag3 = true;
                     isStrikeThrough = true;
@@ -543,7 +549,7 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
                 }
 
                 //块引用
-                if (types.contains(ACRichEditor.Type.BLOCKQUOTE)) {
+                if (types.contains(ARichEditor.Type.BLOCKQUOTE)) {
                     flag4 = true;
                     flag5 = false;
                     flag6 = false;
@@ -562,7 +568,7 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
                 }
 
 
-                if (types.contains(ACRichEditor.Type.H1)) {
+                if (types.contains(ARichEditor.Type.H1)) {
                     flag4 = false;
                     flag5 = true;
                     flag6 = false;
@@ -581,7 +587,7 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
                     isclick = false;
                 }
 
-                if (types.contains(ACRichEditor.Type.H2)) {
+                if (types.contains(ARichEditor.Type.H2)) {
                     flag4 = false;
                     flag5 = false;
                     flag6 = true;
@@ -600,7 +606,7 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
                     isclick = false;
                 }
 
-                if (types.contains(ACRichEditor.Type.H3)) {
+                if (types.contains(ARichEditor.Type.H3)) {
                     flag4 = false;
                     flag5 = false;
                     flag6 = false;
@@ -618,7 +624,7 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
                     isclick = false;
                 }
 
-                if (types.contains(ACRichEditor.Type.H4)) {
+                if (types.contains(ARichEditor.Type.H4)) {
                     flag4 = false;
                     flag5 = false;
                     flag6 = false;

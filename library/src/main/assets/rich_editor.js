@@ -143,11 +143,25 @@ RE.setUnderline = function() {
 RE.setBullets = function() {
     document.execCommand('InsertUnorderedList', false, null);
 }
-
+RE.setBullets = function(b) {
+document.execCommand('InsertUnorderedList', false, b);
+//if(b){
+//    document.execCommand('InsertUnorderedList', false, b);
+//    }else{
+//    document.execCommand('InsertUnorderedList', false, null);
+//    }
+}
 RE.setNumbers = function() {
     document.execCommand('InsertOrderedList', false, null);
 }
-
+RE.setNumbers = function(b) {
+document.execCommand('InsertOrderedList', false, b);
+//if(b){
+//    document.execCommand('InsertOrderedList', false, b);
+//  }else{
+//    document.execCommand('InsertOrderedList', false, null);
+//  }
+}
 RE.setTextColor = function(color) {
     RE.restorerange();
     document.execCommand("styleWithCSS", null, true);

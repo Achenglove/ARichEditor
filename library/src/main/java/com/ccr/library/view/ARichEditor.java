@@ -469,10 +469,21 @@ public class ARichEditor extends WebView {
     public void setBullets() {
         exec("javascript:RE.setBullets();");
     }
-
+    //设置点点
+    public void setBullets(boolean b) {
+        exec("javascript:RE.prepareInsert();");
+        exec("javascript:RE.setBullets(" + b + ");");
+        Log.d("Acheng",b+":Bullets");
+    }
     //设置数字
     public void setNumbers() {
         exec("javascript:RE.setNumbers();");
+    }
+    //设置数字
+    public void setNumbers(boolean b) {
+        exec("javascript:RE.prepareInsert();");
+        exec("javascript:RE.setNumbers(" + b + ");");
+        Log.d("Acheng",b+":Numbers");
     }
 
     //添加图片图片
