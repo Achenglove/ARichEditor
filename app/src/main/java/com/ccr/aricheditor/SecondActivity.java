@@ -641,6 +641,7 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
                     flag8 = false;
                     isclick = false;
                 }
+
             }
         });
 
