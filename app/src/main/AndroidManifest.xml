@@ -32,6 +32,10 @@
             android:name=".MainActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".HtmlActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <!--<activity android:name=".selectphoto.PhotoPagerActivity" />-->
         <!--<activity android:name=".selectphoto.PhotoPickerActivity" />-->
     </application>

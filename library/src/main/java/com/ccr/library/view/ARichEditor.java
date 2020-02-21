@@ -245,6 +245,13 @@ public class ARichEditor extends WebView {
         mContents = contents;
     }
 
+    @Override
+    public void loadUrl(String url) {
+        super.loadUrl(url);
+
+    }
+
+
     /**
      * getText
      *
@@ -331,6 +338,32 @@ public class ARichEditor extends WebView {
                 "    head.appendChild(link);" +
                 "}) ();";
         exec("javascript:" + jsCSSImport + "");
+    }
+
+    public void setWebImageClick(WebView view) {
+        String jsCode = "javascript:(function(){" +
+                "var imgs=document.getElementsByTagName(\"img\");" +
+                " var array=new Array(); " +
+                " for(var j=0;j<imgs.length;j++){ array[j]=imgs[j].src; }" +
+                "for(var i=0;i<imgs.length;i++){" +
+
+                "imgs[i].onclick=function(){" +
+                "window.jsCallJavaObj.openImage(this.src,array);" +
+                "}}})()";
+        view.loadUrl(jsCode);
+    }
+
+    public void setWebImageClick() {
+        String jsCode = "javascript:(function(){" +
+                "var imgs=document.getElementsByTagName(\"img\");" +
+                " var array=new Array(); " +
+                " for(var j=0;j<imgs.length;j++){ array[j]=imgs[j].src; }" +
+                "for(var i=0;i<imgs.length;i++){" +
+
+                "imgs[i].onclick=function(){" +
+                "window.jsCallJavaObj.openImage(this.src,array);" +
+                "}}})()";
+        exec("javascript:" + jsCode + "");
     }
 
     //撤销
@@ -469,21 +502,24 @@ public class ARichEditor extends WebView {
     public void setBullets() {
         exec("javascript:RE.setBullets();");
     }
+
     //设置点点
     public void setBullets(boolean b) {
         exec("javascript:RE.prepareInsert();");
         exec("javascript:RE.setBullets(" + b + ");");
-        Log.d("Acheng",b+":Bullets");
+        Log.d("Acheng", b + ":Bullets");
     }
+
     //设置数字
     public void setNumbers() {
         exec("javascript:RE.setNumbers();");
     }
+
     //设置数字
     public void setNumbers(boolean b) {
         exec("javascript:RE.prepareInsert();");
         exec("javascript:RE.setNumbers(" + b + ");");
-        Log.d("Acheng",b+":Numbers");
+        Log.d("Acheng", b + ":Numbers");
     }
 
     //添加图片图片

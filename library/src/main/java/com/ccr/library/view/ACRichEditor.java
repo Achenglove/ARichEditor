@@ -342,7 +342,30 @@ public class ACRichEditor extends WebView {
                 "}) ();";
         exec("javascript:" + jsCSSImport + "");
     }
+    public  void setWebImageClick(WebView view) {
+        String jsCode="javascript:(function(){" +
+                "var imgs=document.getElementsByTagName(\"img\");" +
+                " var array=new Array(); " +
+                " for(var j=0;j<imgs.length;j++){ array[j]=imgs[j].src; }"+
+                "for(var i=0;i<imgs.length;i++){" +
 
+                "imgs[i].onclick=function(){" +
+                "window.jsCallJavaObj.openImage(this.src,array);" +
+                "}}})()";
+        view.loadUrl(jsCode);
+    }
+    public  void setWebImageClick() {
+        String jsCode="javascript:(function(){" +
+                "var imgs=document.getElementsByTagName(\"img\");" +
+                " var array=new Array(); " +
+                " for(var j=0;j<imgs.length;j++){ array[j]=imgs[j].src; }"+
+                "for(var i=0;i<imgs.length;i++){" +
+
+                "imgs[i].onclick=function(){" +
+                "window.jsCallJavaObj.openImage(this.src,array);" +
+                "}}})()";
+        exec("javascript:" + jsCode + "");
+    }
     public void undo() {
         exec("javascript:RE.undo();");
     }

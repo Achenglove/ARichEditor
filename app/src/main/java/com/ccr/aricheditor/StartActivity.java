@@ -11,7 +11,6 @@ import android.view.View;
  * @autthor Acheng
  * @Email 345887272@qq.com
  * @Description
- *
  */
 
 public class StartActivity extends AppCompatActivity {
@@ -30,6 +29,13 @@ public class StartActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(StartActivity.this, SecondActivity.class);
+                startActivity(intent);
+            }
+        });
+        findViewById(R.id.button3).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(StartActivity.this, HtmlActivity.class);
                 startActivity(intent);
             }
         });
